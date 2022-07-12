@@ -15,8 +15,8 @@ READS SQL DATA
 BEGIN
 	declare var1 int;
     declare var2 int;
-    set var1 = (select id_trabajo from trabajo where id_auto_p = id_trabajo);
-    set var2 = (select revision from chqueo where var1 = id_trabajo);
+    set var1 = (select id_trabajo from trabajo where id_auto_p = id_auto);
+    set var2 = (select revisado from chequeo where var1 = id_trabajo);
     if (var2) > 0 then
 		return ('El auto fue chequeado');
 	else
