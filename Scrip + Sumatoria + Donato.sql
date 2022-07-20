@@ -226,6 +226,8 @@ END$$
 
 --Stored procedures --
 
+DELIMITER $$
+USE `Lubricentro`$$
 
 CREATE PROCEDURE `order_by` (in var char(50), in var2 int)
 BEGIN
@@ -248,6 +250,8 @@ END
 
 
 --TRIGGERS--
+DELIMITER $$
+USE `Lubricentro`$$
 
 CREATE TABLE `insert_auto` (
   `id_auto` int unsigned NOT NULL AUTO_INCREMENT,
