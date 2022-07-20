@@ -240,13 +240,14 @@ BEGIN
     prepare runSQL from @final;
     execute runSQL;
     deallocate prepare runSQL;
-END
+END$$
 
+DELIMITER $$
 
 CREATE PROCEDURE `sp_insert`(in nom char(200), in tel int, in p_dni int)
 BEGIN
 	insert into cliente ( nombre_apellido, telefono, dni ) values (nom, tel, p_dni);
-END
+END$$
 
 
 --TRIGGERS--
@@ -261,22 +262,29 @@ CREATE TABLE `insert_auto` (
   `id_cliente` int unsigned NOT NULL,
   PRIMARY KEY (`id_auto`)
   ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+END$$
 
+DELIMITER $$
 CREATE TRIGGER AFT_INS_auto
 AFTER INSERT ON auto
 FOR EACH ROW
 INSERT INTO insert_auto
 VALUES (NEW.id_auto, NEW.marca, NEW.modelo, NEW.kms, NEW.id_cliente);
 
-
+END$$
 
 CREATE TABLE logs( 
 	fecha DATE,
     hora TIME,
     usuario VARCHAR(100));
     
+    
+DELIMITER $$
+
 CREATE TRIGGER BEF_DEL_CLIENTE_LOGS
 BEFORE DELETE ON cliente
 FOR EACH ROW
 INSERT INTO logs
 VALUES (CURDATE(), CURTIME(), USER());
+
+END$$
