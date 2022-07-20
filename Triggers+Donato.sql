@@ -13,6 +13,8 @@ FOR EACH ROW
 INSERT INTO insert_auto
 VALUES (NEW.id_auto, NEW.marca, NEW.modelo, NEW.kms, NEW.id_cliente);
 
+INSERT INTO auto 
+VALUES (16, 'Peugeot', '106', 25000, 11);
 
 
 CREATE TABLE logs( 
@@ -21,10 +23,11 @@ CREATE TABLE logs(
     usuario VARCHAR(100));
     
 CREATE TRIGGER BEF_DEL_CLIENTE_LOGS
-BEFORE DELETE ON cliente
+BEFORE INSERT ON cliente
 FOR EACH ROW
 INSERT INTO logs
 VALUES (CURDATE(), CURTIME(), USER());
     
-    
-    
+   
+DELETE FROM cliente
+where id_cliente = 10
