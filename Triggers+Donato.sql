@@ -31,3 +31,12 @@ VALUES (CURDATE(), CURTIME(), USER());
    
 DELETE FROM cliente
 where id_cliente = 10
+
+
+--
+
+
+CREATE VIEW tbj_comp AS
+SELECT trabajo.id_trabajo, trabajo.num_empleado, chequeo.revisado, sucursal.barrio
+FROM trabajo, chequeo, sucursal
+WHERE trabajo.id_trabajo = chequeo.id_trabajo = sucursal.id_trabajo;
