@@ -12,8 +12,7 @@ Este repositorio contiene múltiples bases de datos de prueba y diagramas utiliz
 ## 🚀 Cómo usar este repositorio
 1. Clonar el repositorio:  
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd <NOMBRE_DEL_REPO>
+   git clone https://github.com/BrunoMDonato/database-sandbox.git   
    ```
 2. Importar los esquemas y datos en el motor de base de datos correspondiente.
 3. Explorar y modificar las consultas según necesidad.
